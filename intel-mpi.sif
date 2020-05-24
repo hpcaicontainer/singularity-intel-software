@@ -5,7 +5,7 @@ From: centos:7
     The installed intel mpi is under /opt/intel in the container.	
 
 %environment
-    source /opt/intel/parallel_studio_xe_2020/bin/psxevars.sh
+    # source /opt/intel/parallel_studio_xe_2020/bin/psxevars.sh
     source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh
     source /opt/intel/compilers_and_libraries/linux/mkl/bin/mklvars.sh intel64
     I_MPI_SHM_LMT=shm
