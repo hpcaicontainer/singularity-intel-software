@@ -1,4 +1,4 @@
-# Intel
+# Singularity Container for Intel Software
 Singularity container for Intel Parallel Studio XE Runtime, Intel MPI, Intel MKL, etc.
 
 [**Intel® Parallel Studio XE Runtime**](https://software.intel.com/content/www/us/en/develop/articles/installing-intel-parallel-studio-xe-runtime-2020-using-yum-repository.html) includes everything you need to run applications built with **Intel® Parallel Studio XE**. The runtime doesn't include the compiling tools, such as mpicc, etc.
