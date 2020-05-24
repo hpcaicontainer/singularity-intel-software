@@ -1,0 +1,21 @@
+Bootstrap: docker
+From: centos:7
+
+%help
+    The installed intel mpi is under /opt/intel in the container.	
+
+%environment
+    source /opt/intel/parallel_studio_xe_2020/bin/psxevars.sh
+    source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh
+    source /opt/intel/compilers_and_libraries/linux/mkl/bin/mklvars.sh intel64
+    I_MPI_SHM_LMT=shm
+    export  I_MPI_SHM_LMT
+
+%post
+    yum install -y wget vi which numactl
+    yum install -y hostname lscpu uptime redhat-lsb
+    yum install gcc -y
+    yum-config-manager --add-repo https://yum.repos.intel.com/setup/intelproducts.repo
+    yum install intel-mkl -y
+    yum install intel-mpi -y
+  

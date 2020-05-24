@@ -1,0 +1,23 @@
+Bootstrap: docker
+From: centos:7
+
+%help
+    The installed intel psxe runtime is under /opt/intel in the container.	
+
+%environment
+    source /opt/intel/psxe_runtime/linux/bin/psxevars.sh
+    I_MPI_SHM_LMT=shm
+    export  I_MPI_SHM_LMT
+    
+%post
+    yum install -y wget vi which numactl
+    yum install -y hostname lscpu uptime redhat-lsb
+    yum install gcc -y
+
+    rpm --import https://yum.repos.intel.com/2020/setup/RPM-GPG-KEY-intel-psxe-runtime-2020
+    rpm -Uhv https://yum.repos.intel.com/2020/setup/intel-psxe-runtime-2020-reposetup-1-0.noarch.rpm
+    yum install intel-psxe-runtime -y
+    # yum install libhfil libpsm2 -y # Needed if ran on system with OPA 
+    yum install libnl -y
+
+
